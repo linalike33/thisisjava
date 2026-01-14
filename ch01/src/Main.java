@@ -1,0 +1,40 @@
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.print("2단\t\t3단\t\t4단\n");
+        for (int j = 1; j <= 9; j++) {
+            System.out.print("2X" + j + "=" + (2*j) + "\t");
+            System.out.print("3X" + j + "=" + (3*j) + "\t");
+            System.out.print("4X" + j + "=" + (4*j) + "\t" );
+            System.out.println();
+        }
+        System.out.println();
+
+        System.out.print("5단\t\t6단\t\t7단\n");
+        for (int j = 1; j <= 9; j++) {
+            System.out.print("5X" + j + "=" + (5*j) + "\t");
+            System.out.print("6X" + j + "=" + (6*j)+ "\t" );
+            System.out.print("7X" + j + "=" + (7*j) + "\t");
+            System.out.println();
+        }
+        System.out.println();
+        System.out.print("5단\t\t6단\n");
+        for (int j = 1; j <= 9; j++) {
+            System.out.print("8X" + j + "=" + (8*j)+ "\t");
+            System.out.print("9X" + j + "=" + (9*j)+ "\t");
+            System.out.println();
+        }
+    }
+}
+
+//        for (int i = 2; i < 10; i += 3) {
+//            System.out.println(
+//                    String.format("")
+//
+//            for (int j = 1; j < 10; j++) {
+//                System.out.println(i + "X" + j + "=" + i * j);
+//            }
+//        }
+//        System.out.println();
+//    }
+//}
