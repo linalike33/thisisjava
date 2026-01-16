@@ -22,6 +22,7 @@ public class Main {
         StringType v5 = new StringType();
         Promotion v7 = new Promotion();
         Casting v8 = new Casting();
+        TranslateType v9 = new TranslateType();
 
 
         v1.howToUseVariable();
@@ -32,6 +33,7 @@ public class Main {
         v6.usrChar();
         v7.usrPromotion();
         v8.usrCasting();
+        v9.useTranslate();
 
 
 
