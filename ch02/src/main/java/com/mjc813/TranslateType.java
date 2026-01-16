@@ -66,6 +66,6 @@ public class TranslateType {
         System.out.println("str2:"+str2);
         System.out.println("str3:"+str3);
 
-       
+
     }
 }
