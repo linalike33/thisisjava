@@ -19,5 +19,27 @@ public class Main {
         v.Third02();
         v.Third03();
         v.Third04();
+        v.Third05();
+        v.Third06();
+        v.Third07();
+        v.Third08();
+        v.Third09();
+        v.Third010();
+        v.Third011();
+
+
+        Chapter03 solver = new Chapter03();
+        System.out.printf("2x + 8 = 0 의 해, x 는 %d%n", solver.equationFirst(2, 8));
+        System.out.printf("5x - 30 = 0 의 해, x 는 %d%n", solver.equationFirst(5, -30));
+        System.out.printf("7x + 49 = 0 의 해, x 는 %d%n", solver.equationFirst(7, 49));
+        Matter v1 = new Matter();
+        v1.matter01();
+        v1.matter02();
+        v1.matter03();
+        v1.matter04();
+        v1.matter05();
+        v1.matter06();
+        v1.matter07();
     }
+
 }
