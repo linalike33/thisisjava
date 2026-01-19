@@ -55,7 +55,7 @@ public class Matter {
      public static void  matter08(){
         int i = 0, j = 100;
         for (; i <= 50 && j >= 50;){
-            
+
         }
      }
 
