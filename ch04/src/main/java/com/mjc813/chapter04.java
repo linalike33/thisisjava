@@ -23,6 +23,7 @@ public class chapter04 {
             sum = sum + i ;
         }
         System.out.println("3의 배수의 합:"+sum);
+
     }public static void Third03() {
         //두 개의 주사위를 던졌을 때 나오는 눈을 (눈1, 눈2) 형태로 출력하고 눈의 합이 5가 아니면 계속 주사위를 던지고
         //눈의 합이 5이면 실행하는 코드를 작성 ( 1,4 ), ( 4, 1 ), ( 2, 3 ), ( 3, 2 )

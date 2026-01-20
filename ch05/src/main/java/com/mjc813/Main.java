@@ -13,11 +13,22 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
-        chapter04 ni = new chapter04();
-        ni.Third01();
-        ni.Third02();
-        ni.Third03();
-        ni.Third05();
-        ni.Third06();
+        chapter05 v = new chapter05();
+
+        v.Third01();
+        v.Third02();
+        v.Third03();
+        v.Third04();
+        v.Third05();
+        v.Third06();
+        v.Third07();
+        v.Third08();
+        v.Third09();
+        v.Third10();
+        v.Third11();
+        v.Third12();
+        v.Third13();
+        v.Third14();
+
     }
 }
