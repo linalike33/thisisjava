@@ -13,22 +13,40 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
-        chapter05 v = new chapter05();
+        Chapter05 v = new Chapter05();
 
-        v.Third01();
-        v.Third02();
-        v.Third03();
-        v.Third04();
-        v.Third05();
-        v.Third06();
-        v.Third07();
-        v.Third08();
-        v.Third09();
-        v.Third10();
-        v.Third11();
-        v.Third12();
-        v.Third13();
-        v.Third14();
+//        v.Third01();
+//        v.Third02();
+//        v.Third03();
+//        v.Third04();
+//        v.Third05();
+//        v.Third06();
+//        v.Third07();
+//        v.Third08();
+//        v.Third09();
+//        v.Third10();
+//        v.Third11();
+//        v.Third12();
+//        v.Third13();
+//        v.Third14();
+          v.Third15();
+          v.Third16();
+          v.Third15_1();
+          v.Third15_2();
+          v.Third15_3();
+          v.Third15_4();
+          v.Third17();
+          v.Third18();
+          v.Third19();
+
+//        String s1 = null;
+//        System.out.println("ch05 = " + v.runFifth04(s1));
+//
+//        v.runTest();
+//        v.runArray();
+//        v.acmicpcNet_problem_10818();
+    }
+
+
 
     }
-}

@@ -1,7 +1,10 @@
 package com.mjc813;
 
-public class chapter05 {
-    public static void Third01() {
+import java.util.Scanner;
+
+
+public class Chapter05 {
+    public void Third01() {
         int[] arr1;
         int[] arr2;
         int[] arr3;
@@ -17,7 +20,7 @@ public class chapter05 {
         System.out.println(arr2 == arr3);
     }
 
-    public static void Third02() {
+    public void Third02() {
         //int [] intArray = null;
         //intArray[0] = 10;
         //String str = null;
@@ -31,7 +34,7 @@ public class chapter05 {
         System.out.println("Kind2:" + kind2);
     }
 
-    public static void Third03() {
+    public void Third03() {
         //문자열 비교
         String strVar = "홍길동";
         String strVar1 = "홍길동";
@@ -61,7 +64,7 @@ public class chapter05 {
         }
     }
 
-    public static void Third04() {
+    public void Third04() {
         //문자추출
         String ssn = "961234567890268";
         char sex = ssn.charAt(7);
@@ -77,7 +80,7 @@ public class chapter05 {
         }
     }
 
-    public static void Third05() {
+    public void Third05() {
         //문자열길이
         String ssn = "681023456789651";
         int length = ssn.length();
@@ -88,7 +91,7 @@ public class chapter05 {
         }
     }
 
-    public static void Third06() {
+    public void Third06() {
         //문자열대체
         String old = "자바 무자열은 불변입니다. 자바 문자열은 String입니다";
         String newstr = old.replace("자바", "JAvA");
@@ -97,7 +100,7 @@ public class chapter05 {
         System.out.println(newstr);
     }
 
-    public static void Third07() {
+    public void Third07() {
         //문자열잘라내기
         String ssn = "020709-1234567";
 
@@ -108,7 +111,7 @@ public class chapter05 {
         System.out.println(se);
     }
 
-    public static void Third08() {
+    public void Third08() {
         //문자열찾기
         String su = "자바 프로그래밍";
 
@@ -133,7 +136,7 @@ public class chapter05 {
 
     }
 
-    public static void Third09() {
+    public void Third09() {
         //문자열분리
         String board = "1,자바학습,참조타입 String을 학습합니다,홍길동";
 
@@ -151,7 +154,7 @@ public class chapter05 {
 
     }
 
-    public static void Third10() {
+    public void Third10() {
         //값 목록으로 배열 생성
         int[] scores;
         scores = new int[]{83, 90, 87};
@@ -165,13 +168,13 @@ public class chapter05 {
 
     }
 
-    public static void printItem(int[] scores) {
+    public void printItem(int[] scores) {
         for (int i = 0; i < 3; i++) {
             System.out.println("score[" + i + "]:" + scores[i]);
         }
     }
 
-    public static void Third11() {
+    public void Third11() {
         //new 연산자로 배열 생성
         int[] arr1 = new int[3];
         for (int i = 0; i < 3; i++) {
@@ -216,7 +219,7 @@ public class chapter05 {
 
     }
 
-    public static void Third12() {
+    public void Third12() {
         //배열길이
         int[] scores = {84, 89, 53};
 
@@ -231,7 +234,7 @@ public class chapter05 {
         System.out.println("평균:" + avg);
     }
 
-    public static void Third13() {
+    public void Third13() {
         //다차원 배열 (값 목록으로 생성)
         int[][] sc = {
                 {78, 79, 97},
@@ -271,7 +274,7 @@ public class chapter05 {
         System.out.println("전체 학생의 평균 점수:" + toA);
     }
 
-    public static void Third14() {
+    public void Third14() {
         //다차원 배열 (new 연산자로 다차원 배열 생성)
         int[][] math = new int[2][3];
 
@@ -305,8 +308,8 @@ public class chapter05 {
         eng[0] = new int[2];
         eng[1] = new int[3];
         for (int i = 0; i < eng.length; i++) {
-            for (int k = 0; k < math[i].length; k++) {
-                System.out.println("engf[" + i + "]" + "[" + k + "]:" + eng[i][k]);
+            for (int k = 0; k < eng[i].length; k++) {
+                System.out.println("eng[" + i + "]" + "[" + k + "]:" + eng[i][k]);
             }
         }
         System.out.println();
@@ -326,4 +329,255 @@ public class chapter05 {
         double totaEA = (double) totaE / totaS;
         System.out.println("전채 학생의 영어 평균 점수: " + totaEA);
     }
+
+    public void Third15() {
+        boolean[] boolArray = new boolean[10];
+        for (int i = 0; i < boolArray.length; i++) {
+            if (i % 2 == 0) {
+                boolArray[i] = true;
+            }
+        }
+        for (int i = 0; i < boolArray.length; i++) {
+            System.out.printf("%s ", boolArray[i]);
+        }
+        System.out.println();
+    }
+
+    public void Third15_1() {
+        // 1-1 : 30개의 int 형 배열을 선언하고 모든 원소의 값을 인덱스 번호로 대입하세요.
+        int[] arrff = new int[30];
+        for (int i = 0; i < arrff.length; i++) {
+            System.out.println("인덱스번호 :" + i); //
+        }
+    }
+
+    public void Third15_2() {
+        char[] charr = new char[20];
+        for (int i = 0; i < charr.length; i++) {
+            System.out.println(i + "길이는:" + charr[i]);
+        }
+    }
+
+    public void Third15_3() {
+        boolean[][] booleans = new boolean[3][4];
+        for (int i = 0; i < booleans.length; i++) {
+            for (int k = 0; k < booleans[i].length; k++) {
+                booleans[i][k] = true;
+                System.out.println(booleans[i][k]);
+            }
+        }
+
+    }
+
+    public void Third15_4() {
+        String[] a = new String[50];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = "empty";
+            System.out.println(a[i]);
+        }
+    }
+
+    public void Third16() {
+        int ze = 0;
+        int en = 0;
+        int[][] intDementiom2 = {
+                {1, 0, 1, 0, 0, 1}
+                , {1, 0, 1, 1, 0, 1}
+                , {0, 1, 0, 1, 0, 0}
+                , {1, 0, 0, 1, 0, 1}
+                , {1, 0, 1, 0, 0, 1}
+        };
+        for (int i = 0; i < intDementiom2.length; i++) {
+            //1차원 배열을 순환
+            for (int k = 0; k < intDementiom2[i].length; k++) {
+                //2차원배열
+                if (intDementiom2[i][k] == 1) {
+                    en++; // 1의 개수 증가
+                } else if (intDementiom2[i][k] == 0) {
+                    ze++; // 0의 개수 증가
+                }
+            }
+        }
+
+        System.out.println("0의 갯수는" + ze + "개" + ", 1의 갯수는" + en + "개");
+    }
+
+    public void Third17() {
+        char[][] chInput = {
+                {'*', ' ', '*', '*', ' '}
+                , {'*', '*', ' ', ' ', ' '}
+                , {'*', ' ', '*', ' ', '*'}
+                , {' ', '*', '*', ' ', '*'}
+                , {'*', ' ', '*', ' ', '*'}
+                , {' ', ' ', '*', '*', '*'}
+
+        };
+
+        char[][] chOutput = new char[chInput[0].length][chInput.length];
+        for (int i = 0; i < chInput.length; i++) {
+            for (int k = 0; k < chInput[i].length; k++) {
+                chOutput[k][i] = chInput[i][k];
+            }
+        }
+
+        for (int i = 0; i < chOutput.length; i++) {
+            for (int k = 0; k < chOutput[i].length; k++) {
+                System.out.print(chOutput[i][k]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void Third18() {
+        double[] dArray = new double[25];
+        for (int i = 0; i < dArray.length; i++) {
+            dArray[i] = Math.random() * 100;
+            System.out.println("배열의 값: " + dArray[i]);
+        }
+    }
+
+    public void Third19() {
+        double[] dArray = new double[25];
+        int[] nArray = new int[25];
+        int sum = 0;
+        for (int i = 0; i < nArray.length; i++) {
+            nArray[i] = (int) dArray[i];
+
+            sum += nArray[i];
+        }
+
+        System.out.println("총합: " + sum);
+
+        double average = (double) sum / nArray.length;
+        System.out.println("평균: " + average);
+    }
+    public void Third20(){
+        String[] strings = new String[25];
+        ()
+
+    }
+    public void Third21(){
+
+    }
 }
+
+//    public String runFifth04(String s) {
+//        if ( s ==  null ) {
+//            // 매개변수에 null 이 오면 NullPointException 예외가 발생한다.  try ~ catch 방어코드
+//            // 예외를 방어코드로 처리했다.
+//            return "";
+//        }
+//        return s.substring(0, 1);
+//    }
+//
+//    public void runTest() {
+//        String a = "홍길동";
+//        String b = new String("홍길동");
+//        System.out.println("a.hashCode() : " + a.hashCode());
+//        System.out.println("b.hashCode() : " + b.hashCode());
+//        boolean b1 = a == b;
+//        System.out.println("a == b : " + b1);
+//
+//        for ( int i = 0; i < a.length(); i++ ) {
+//            char ch = a.charAt(i);
+//            System.out.println("ch = " + ch);
+//        }
+//
+//        String str1 = "I am a Boy, 홍길동, 안녕 Z";
+//        String str2 = str1.replace("a", "A");
+//        System.out.println("str1 = " + str1);
+//        System.out.println("str2 = " + str2);
+//        String str3 = str1.substring(2, 4);
+//        System.out.println("str1 = " + str1);
+//        System.out.println("str3 = " + str3);
+//        int ndx1 = str1.indexOf("Z1");
+//        System.out.println("ndx1 = " + ndx1);
+//        String[] arr1 = str1.split(",");
+//        for ( String aItem : arr1 ) {
+//            System.out.println("aItem = " + aItem);
+//        }
+//    }
+//
+//    public void runArray() {
+//        // for 문을 *, **, ***, ****, *****
+//        String[] line = {"*", "**", "***", "****", "*****"};
+//        for ( String item : line ) {
+//            System.out.println(item);
+//        }
+//
+//        char[][] lines = new char[5][];
+////		lines[0] = new char[1];
+////		lines[1] = new char[2];
+////		lines[2] = new char[3];
+////		lines[3] = new char[4];
+////		lines[4] = new char[5];
+//        for ( int i = 0; i < lines.length; i++ ) {
+//            lines[i] = new char[i+1];
+//            for ( int j = 0; j < lines[i].length; j++ ) {
+//                lines[i][j] = '*';
+//            }
+//        }
+//        for ( int i = 0; i < lines.length; i++ ) {
+//            for ( int j = 0; j < lines[i].length; j++ ) {
+//                System.out.printf("%c", lines[i][j]);
+//            }
+//            System.out.println();
+//        }
+//    }
+//
+//    public void acmicpcNet_problem_10818() {
+//        int[] count = this.getIntArrayFromScanner("처리할 갯수를 입력", 1);
+//        if ( count == null || count.length <= 0 || count[0] == 0 ) {
+//            return;
+//        }
+//
+//        int[] intArray = this.getIntArrayFromScanner("3 -1 5..., 이런식으로 공백으로 숫자를 띄워서 입력", count[0]);
+//        if ( intArray == null || intArray.length <= 0 ) {
+//            return;
+//        }
+//        int[] resArray = this.findMinMax(intArray);
+//        System.out.printf("acmicpcNet_problem_10818 = %d, %d\n", resArray[0], resArray[1]);
+//    }
+//
+//    private int[] findMinMax( int[] intArray ) {
+//        int[] arrResult = {Integer.MAX_VALUE, Integer.MIN_VALUE};
+//        for ( int number : intArray ) {
+//            if ( number < arrResult[0] ) {
+//                // 최솟값 구하기
+//                arrResult[0] = number;
+//            }
+//            if ( arrResult[1] < number ) {
+//                // 최댓값 구하기
+//                arrResult[1] = number;
+//            }
+//        }
+//        return arrResult;
+//    }
+//
+//    private int[] getIntArrayFromScanner(String title, int length) {
+//        System.out.printf("%s : ", title);
+//        Scanner scanner = new Scanner(System.in);
+//
+//        int[] nResult = new int[length];
+//        int number = 0;
+//        String sInput = scanner.nextLine();
+//        try {
+//            String[] arrItem = sInput.split(" ");
+//            for ( int i = 0, j = 0; i < nResult.length && j < arrItem.length; i++, j++ ) {
+//                nResult[i] = Integer.parseInt(arrItem[j]);
+//            }
+//            int j = 0;  // 예외가 발생하면 다음 문장을 실행 안하고 catch 블록으로 이동한다.
+//            j = 10 + j;
+//            // try 블록은 예외가 발생할수도 있는 문장을 try 블록으로 감싸는 역할을 한다.
+//        } catch (Exception e1) {
+//            // try 블록에서 예외가 발생되면 catch (예외클래스 객체이름) 블록으로 자동 실행된다.
+//            System.err.println(e1.getMessage() + ": 숫자 값을 입력하세요 !");
+//            nResult = null;
+//        }
+//        // 키보드 입력으로 정수형 문자열 입력받아서 정수로 변환하고 리턴
+//        return nResult;
+//    }
+
+
+
+
