@@ -453,11 +453,19 @@ public class Chapter05 {
     }
     public void Third20(){
         String[] strings = new String[25];
-        ()
+        double[] dArray = new double[25];
+        int[] nArray = new int[25];
+        for (int i = 0; i < strings.length; i++) {
+            strings[i] = dArray[i] + " => " + nArray[i];
+        }
+
+        for (int i = 0; i < strings.length; i++) {
+            System.out.println(strings[i]);
+        }
 
     }
     public void Third21(){
-
+        
     }
 }
 
