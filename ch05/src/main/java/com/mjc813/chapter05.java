@@ -1,7 +1,7 @@
 package com.mjc813;
 
-import java.util.Scanner;
 
+import java.util.Calendar;
 
 public class Chapter05 {
     public void Third01() {
@@ -428,44 +428,121 @@ public class Chapter05 {
         }
     }
 
-    public void Third18() {
-        double[] dArray = new double[25];
-        for (int i = 0; i < dArray.length; i++) {
-            dArray[i] = Math.random() * 100;
-            System.out.println("배열의 값: " + dArray[i]);
-        }
-    }
-
-    public void Third19() {
-        double[] dArray = new double[25];
-        int[] nArray = new int[25];
-        int sum = 0;
-        for (int i = 0; i < nArray.length; i++) {
-            nArray[i] = (int) dArray[i];
-
-            sum += nArray[i];
+        public double[] Third18() {
+            double[] dArray = new double[25];
+            for (int i = 0; i < dArray.length; i++) {
+                dArray[i] = Math.random() * 100;
+            }
+            return dArray;
         }
 
-        System.out.println("총합: " + sum);
 
-        double average = (double) sum / nArray.length;
-        System.out.println("평균: " + average);
-    }
-    public void Third20(){
-        String[] strings = new String[25];
-        double[] dArray = new double[25];
-        int[] nArray = new int[25];
-        for (int i = 0; i < strings.length; i++) {
-            strings[i] = dArray[i] + " => " + nArray[i];
+        public int[] Third19(double[]dArray) {
+            int[] nArray = new int[25];
+            int sum = 0;
+            for (int i = 0; i < nArray.length; i++) {
+                nArray[i] = (int) dArray[i];
+                sum += nArray[i];
+            }
+            System.out.println("총합: " + sum);
+            System.out.println("평균: " + (double) sum / nArray.length);
+
+            return nArray; // 1-3번에서 써야 하므로 정수 배열을 밖으로 던짐!
         }
+            public void Third20(double[]dArray, int[]nArray) {
+            String[] strArray = new String[25];
+            for (int i = 0; i < strArray.length; i++) {
+                strArray[i] = dArray[i] + " => " + nArray[i];
+            }
 
-        for (int i = 0; i < strings.length; i++) {
-            System.out.println(strings[i]);
+            // 출력
+            for (int i = 0; i < strArray.length; i++) {
+                System.out.println(strArray[i]);
+            }
         }
+        public void Third20(){
+        String[] strArray = new String[3];
+        strArray[0] = "Java";
+        strArray[1]= "Java";
+        strArray[2]= new String("Java");
 
+        System.out.println(strArray[0] == strArray[1]);
+        System.out.println(strArray[0] == strArray[2]);
+        System.out.println(strArray[0].equals(strArray[2]));
     }
     public void Third21(){
-        
+        int[] oidIntArray = {1,2,3};
+        int[] newIntArray = new int[5];
+
+        for(int i = 0; i<oidIntArray.length; i++){
+            newIntArray[i] =oidIntArray[i]; //오른쪽(B)에 있는 것을 왼쪽(A)에 복사해서 담음
+        }
+        for(int i = 0; i<newIntArray.length; i++){
+            System.out.println(newIntArray[i]+",");
+        }
+        String[] oldna = {"jave","array","copy"};
+        String[] newma = new String[5];
+        System.arraycopy(oldna,0,newma,0,oldna.length);
+        for(int i=0; i<newma.length; i++){
+            System.out.println(newma[i]+",");
+        }
+    }
+    public void Third22(){
+        int[]scs = {98,75,69,77};
+
+        int sum = 0;
+        for(int sc : scs){
+            sum = sum + sc;
+        }
+        System.out.println("점수 총합:"+sum);
+        double avg = (double) sum /scs.length;
+        System.out.println("점수 평균:"+avg);
+
+    }
+    public void Third23(String[] args){
+        if (args.length !=2){
+            System.out.println("프로그램 입력값이 부족");
+            System.exit(0);
+        }
+        String strN = args[0];
+        String strN1 = args[1];
+
+        int num1 = Integer.parseInt(strN);
+        int num2 = Integer.parseInt(strN1);
+
+        int res = num1 + num2;
+        System.out.println(num1+"+"+num2+"="+res);
+    }
+    public void Third24(){
+        Week today = null;
+
+        Calendar cal =Calendar.getInstance();
+
+        int week = cal.get(Calendar.DAY_OF_WEEK);
+        switch (week){
+            case  1: today = Week.SUNDAY; break;
+            case  2: today = Week.MONDAY; break;
+            case  3: today = Week.TUESDAY; break;
+            case  4: today = Week.WEDNESDAY; break;
+            case  5: today = Week.THURSDAY; break;
+            case  6: today = Week.FRIDAY; break;
+            case  7: today = Week.SATURDAY; break;
+        }
+        if(today == Week.SUNDAY){
+            System.out.println("일요일에는 축구를 합니다");
+        }else {
+            System.out.println("열심히 자바공부를 합니다");
+        }
+    }
+
+    public enum Week {
+            MONDAY,
+            TUESDAY,
+            WEDNESDAY,
+            THURSDAY,
+            FRIDAY,
+            SATURDAY,
+            SUNDAY
     }
 }
 

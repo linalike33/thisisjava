@@ -13,7 +13,9 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
-        Chapter05 v = new Chapter05();
+        matter m = new matter();
+        //Chapter05 v = new Chapter05();
+
 
 //        v.Third01();
 //        v.Third02();
@@ -29,15 +31,27 @@ public class Main {
 //        v.Third12();
 //        v.Third13();
 //        v.Third14();
-          v.Third15();
-          v.Third16();
-          v.Third15_1();
-          v.Third15_2();
-          v.Third15_3();
-          v.Third15_4();
-          v.Third17();
-          v.Third18();
-          v.Third19();
+//        v.Third15();
+//        v.Third16();
+//         v.Third15_1();
+//         v.Third15_2();
+//          v.Third15_3();
+//          v.Third15_4();
+//          v.Third17();
+//        double[] dArry = v.Third18();
+//        int[] intnArray = v.Third19(dArry);
+//        v.Third20(dArry, intnArray);
+//        v.Third21();
+//        v.Third22();
+//        v.Third23(args);
+//        v.Third24();
+
+        m.p6();
+        m.p7();
+        m.p8();
+        m.p9();
+
+
 
 //        String s1 = null;
 //        System.out.println("ch05 = " + v.runFifth04(s1));
