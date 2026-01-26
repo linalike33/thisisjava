@@ -13,9 +13,9 @@ public class Main {
 //        ch6.ComputerExample();
 //        ch6.Car1Example();
 //        ch6.ClrE();
-        ch6.phoneExample();
-        ch6.DsgameExample();
-
+//        ch6.phoneExample();
+//        ch6.DsgameExample();
+         ch6.runTestLoginLOGOUT();
     }
 }
 

@@ -106,45 +106,116 @@ public class Chapter06 {
         }
         System.out.println("ges를 주입하세요");
     }
-    public void  ClrE(){
+
+    public void ClrE() {
         Clr myCalcu = new Clr();
 
         double re = myCalcu.ar(10);
 
-        double re1= myCalcu.ar(10,20);
+        double re1 = myCalcu.ar(10, 20);
 
-        System.out.println("정사각형 넓이="+re);
-        System.out.println("직사각형 넓이="+re1);
+        System.out.println("정사각형 넓이=" + re);
+        System.out.println("직사각형 넓이=" + re1);
 
     }
-    public void phoneExample(){
-        Phone phone1 = new Phone("아이폰 14 Pro",6.1,3200,"8핀");
-        System.out.println("유통사: "+phone1.uu);
-        System.out.println("핸드폰 기종: "+ phone1.ph);
-        System.out.println("디스플레이 크기: "+ phone1.dis+"인치");
-        System.out.println("배터리 용량: "+ phone1.dat+"mAh");
-        System.out.println("연결 포트: "+ phone1.us);
+
+    public void phoneExample() {
+        Phone phone1 = new Phone("아이폰 14 Pro", 6.1, 3200, "8핀");
+        System.out.println("유통사: " + phone1.uu);
+        System.out.println("핸드폰 기종: " + phone1.ph);
+        System.out.println("디스플레이 크기: " + phone1.dis + "인치");
+        System.out.println("배터리 용량: " + phone1.dat + "mAh");
+        System.out.println("연결 포트: " + phone1.us);
         System.out.println();
 
-        Phone phone2 = new Phone("갤럭시 S25+",6.7,4900,"USB-C");
-        System.out.println("유통사: "+phone2.uu);
-        System.out.println("핸드폰 기종: "+ phone2.ph);
-        System.out.println("디스플레이 크기: "+ phone2.dis+"인치");
-        System.out.println("배터리 용량: "+ phone2.dat+"mAh");
-        System.out.println("연결 포트: "+ phone2.us);
+        Phone phone2 = new Phone("갤럭시 S25+", 6.7, 4900, "USB-C");
+        System.out.println("유통사: " + phone2.uu);
+        System.out.println("핸드폰 기종: " + phone2.ph);
+        System.out.println("디스플레이 크기: " + phone2.dis + "인치");
+        System.out.println("배터리 용량: " + phone2.dat + "mAh");
+        System.out.println("연결 포트: " + phone2.us);
     }
-   public void DsgameExample(){
-       Dsgame[] list = new Dsgame[5];
-       Dsgame game1 = new Dsgame("마리오 골프", "스포츠", "전체이용가", 59800, "http://...");
-       Dsgame game2 = new Dsgame("젤다의 전설", "RPG", "전체이용가", 74800, "http://...");
 
-       list[0] =game1;
-       list[1] =game2;
-//       Dsgame.(game1);
-//       Dsgame.DsgameExample(game2);
+    //   public void DsgameExample(){
+//       Dsgame[] list = new Dsgame[5];
+//       Dsgame game1 = new Dsgame("마리오 골프", "스포츠", "전체이용가", 59800, "http://...");
+//       Dsgame game2 = new Dsgame("젤다의 전설", "RPG", "전체이용가", 74800, "http://...");
 //
-//       // 2. 출력 테스트
-//       System.out.println("--- 게임 목록 ---");
-//       manager.showAllGames();
-   }
+//       list[0] =game1;
+//       list[1] =game2;
+//     Dsgame.(game1);
+//     Dsgame.DsgameExample(game2);
+//     // 2. 출력 테스트
+//     System.out.println("--- 게임 목록 ---");
+//     manager.showAllGames();
+    public void CarEx() {
+        CCarr myCar = new CCarr("포르쉐");
+        CCarr yourCar = new CCarr("벤츠");
+
+        myCar.run();
+        yourCar.run();
+    }
+
+    public void CaalEx() {
+        double re = 10 * 10 * Caal.pi;
+        int re1 = Caal.plus(10, 5);
+        int re2 = Caal.minus(10, 5);
+
+        System.out.println("re:" + re);
+        System.out.println("re1:" + re1);
+        System.out.println("re2:" + re2);
+    }
+
+    public void TelevisEx() {
+        System.out.println(Televis.info);
+    }
+
+    public void KoreanEx() {
+        Korane k1 = new Korane("123456-789153", "김자바");
+
+        System.out.println(k1.nation);
+        System.out.println(k1.ssn);
+        System.out.println(k1.name);
+
+        k1.name = "김자바";
+    }
+
+    public void EarthEx() {
+        System.out.println("지구의 반지름" + Earth.EARTH_RADIUS + "Km");
+        System.out.println("지구의 표면적:" + Earth.EARTH_SURFACE_AREA + "Km^2");
+    }
+
+    //    public void CarEax(){
+//        Car myCarrr = new myCarrr();
+//
+//        myCarrr.setSpeed(-50);
+//        System.out.println("현재속도:"+ myCarrr.setSpeed());
+//
+//        myCarrr.setSpeed(60);
+//        System.out.println("현재속도:"+myCarrr.getSpeed());
+//
+//        if(!myCarrr.isStep()){
+//            myCarrr.setStop(true);
+//        }
+//        System.out.println("현재속도:"+myCarrr.getSpeed());
+//    }
+    public void runTestLoginLOGOUT() {
+        MemberSerice memberSerice = new MemberSerice();
+        boolean resu = memberSerice.login("hong", "12345");
+        if (resu) {
+            System.out.println("로그인 되었습니다.");
+            memberSerice.logout("hong");
+        } else {
+            System.out.println("id 또는 password가 올바르지 않습니다");
+        }
+    }
+    public void printlnn(){
+        Printer printer = new Printer();
+        printer.println(10);
+        printer.println(true);
+        printer.println(5.7);
+        printer.println9("홍길동");
+    }
 }
+
+
