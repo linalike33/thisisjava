@@ -48,6 +48,18 @@ public class Ch07 {
 
         parent.method1();
         parent.method2();
-//        parent.method3(); 호출불가능
+       //parent.method3(); 호출불가능
     }
+    public void StudentClassEx(){
+        StudentClass s = new StudentClass("홍길동","전자회로",90);
+        //s.getGrade();
+        s.printInfo();
+        System.out.println();
+
+        StudentClass s1 = new StudentClass("생성자","영화학개론",39);
+        //s1.getGrade();
+        s1.printInfo();
+        System.out.println();
+    }
+
 }

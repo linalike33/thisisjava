@@ -8,7 +8,8 @@ public class Main {
         Ch07 ss = new Ch07();
         //ss.SmartPhoneEx();
         //ss.ComputerEx();
-        ss.SupersonicAirplaneEx();
-        ss.ChildEx();
+        //ss.SupersonicAirplaneEx();
+        //ss.ChildEx();
+        ss.StudentClassEx();
     }
 }
