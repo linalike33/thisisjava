@@ -10,6 +10,10 @@ public class Main {
         //ss.ComputerEx();
         //ss.SupersonicAirplaneEx();
         //ss.ChildEx();
-        ss.StudentClassEx();
+        //과제 ss.StudentClassEx();
+        //ss.CarEx();
+        //ss.Driver();
+        //ss.personInfo();
+        ss.AbsEx();
     }
 }

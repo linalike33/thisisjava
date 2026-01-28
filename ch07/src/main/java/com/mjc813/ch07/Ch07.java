@@ -1,6 +1,9 @@
 package com.mjc813.ch07;
 
 public class Ch07 {
+    public Ch07() {
+    }
+
     public void SmartPhoneEx() {
         SmartPhone myPhone = new SmartPhone("아이폰", "은색");
         System.out.println("모델:" + myPhone.model);
@@ -61,5 +64,63 @@ public class Ch07 {
         s1.printInfo();
         System.out.println();
     }
+    public void CarEx(){
+        Car mycar = new Car();
+
+        mycar.tire = new Tire();
+        mycar.run();
+
+        mycar.tire = new HankooTire();
+        mycar.run();
+    }
+    public void Driver(){
+        Driver driver = new Driver();
+
+        Bus bus = new Bus();
+        driver.drive(bus);
+
+        Taxi taxi = new Taxi();
+        driver.drive(taxi);
+    }
+    public void personInfo(Person person){
+        System.out.println("name: "+person.name);
+        person.walk();
+
+        if(person instanceof Student student){
+            System.out.println("studenNO: "+ student.studenNO);
+            student.study();
+
+        }
+        
+        Person p1 = new Person("홍길동");
+        personInfo(p1);
+
+        System.out.println();
+
+        Person p2 = new Student("김길동",10);
+        personInfo(p2);
+
+    }
+    public void Phondee(){
+        Smart smart = new Smart("홍길동");
+        smart.tur();
+        smart.intt();
+        smart.off();
+    }
+    public void AbsEx() {
+        Dog dog = new Dog();
+        dog.so();
+
+        Cat cat = new Cat();
+        cat.so();
+
+        animalso(new Dog());
+        animalso(new Cat());
+    }
+    public void animalso(Animal animal){
+        animal.so();
+
+    }
+
 
 }
