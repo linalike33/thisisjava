@@ -91,7 +91,7 @@ public class Ch07 {
             student.study();
 
         }
-        
+
         Person p1 = new Person("홍길동");
         personInfo(p1);
 
@@ -119,6 +119,30 @@ public class Ch07 {
     }
     public void animalso(Animal animal){
         animal.so();
+
+    }
+    public void AanimalEx(){
+        Aanimal tiger = new Tiger();
+        Aanimal rabbit = new Rabbit();
+        Aanimal fox = new Fox();
+        Aanimal swam = new Swam();
+
+        System.out.println("--- [1] 숨쉬기 테스트 ---");
+        tiger.breathe();
+        rabbit.breathe();
+        fox.breathe();
+        swam.breathe();
+
+        System.out.println("\n--- [2] (호랑이) ---");
+        tiger.eat(rabbit);
+        tiger.eat(swam);
+
+        System.out.println("\n--- [3] (여우) ---");
+        fox.eat(swam);
+        fox.eat(rabbit);
+
+        System.out.println("\n--- [4] (백조) ---");
+        swam.eat(tiger);
 
     }
 

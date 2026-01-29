@@ -14,6 +14,10 @@ public class Main {
         //ss.CarEx();
         //ss.Driver();
         //ss.personInfo();
-        ss.AbsEx();
+       // ss.AbsEx();
+        //ss.AanimalEx();
+        Mjc813Student m813 = new Mjc813Student();
+        m813.study();
+
     }
 }
