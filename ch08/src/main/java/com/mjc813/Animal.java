@@ -25,7 +25,7 @@ public class Animal {
             return false;
         }
         if(dayyne >= 15 && dayyne < 20){
-           return false;
+           return true;
         }System.out.println("면회 가능시간이 아닙니다.");
         return false;
 

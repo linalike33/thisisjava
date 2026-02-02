@@ -10,9 +10,22 @@ public class Ch08 {
 //동물환자들은 주인에 대해서만 하루 중에 15시~20시까지 1번만 면회가 가능합니다.
 //위의 내용을 상속,추상클래스,인터페이스 없이 최대 1시간만 사용해서 설계해 보세요
 //다 작성하면 commit, push 하세요
+
+    Nurse nurse = new Nurse();
     Animal animal = new Animal("고양이","A1","의사","주인",7);
+    System.out.println("----동물병원 관리 시스템----");
 
-    Nurse.addrest
 
+    nurse.rest(animal);
+
+    System.out.println("\n---면회 신청 현황---");
+    int rest = 17;
+    String joj = "주인";
+
+    if(animal.Canout(rest, joj)){
+        System.out.println("면회 허용");
+    }else {
+        System.out.println("면회할 수 없습니다");
+    }
     }
 }
