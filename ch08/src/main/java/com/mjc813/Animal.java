@@ -16,7 +16,7 @@ public class Animal {
         this.id = id;
         this.doctorName = doctorName;
         this.joj = joj;
-
+        this.dayyne = dayyne;
     }
 
     public boolean Canout(int dayyne, String joj) {
