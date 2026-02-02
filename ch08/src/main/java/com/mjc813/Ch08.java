@@ -11,7 +11,7 @@ public class Ch08 {
 //위의 내용을 상속,추상클래스,인터페이스 없이 최대 1시간만 사용해서 설계해 보세요
 //다 작성하면 commit, push 하세요
 
-    Nurse nurse = new Nurse();
+    CareNU nurse = new Nurse();
 
     Cat mycat = new Cat("고양이","A1","의사","주인",7);
     System.out.println("----동물병원 관리 시스템----");
