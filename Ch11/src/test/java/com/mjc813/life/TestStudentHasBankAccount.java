@@ -3,8 +3,7 @@ package com.mjc813.life;
 
 import com.mjc813.Bak.BankAccount;
 import com.mjc813.Srud.Student;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
