@@ -1,8 +1,11 @@
 package com.mjc813;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class Ch12 {
     public void Hash(){
@@ -125,5 +128,98 @@ public class Ch12 {
 //            String token = st.next.Token();
 //            System.out.println(token);
 //        }
+    public void BoxingUp(){
+        Integer obj = 100;
+        System.out.println("value:" + obj.intValue());
+
+        int value = obj;
+        System.out.println("value:"+value);
+
+        int result = obj + 100;
+        System.out.println("re:"+result);
     }
-}
+    public void ValueCo(){
+        Integer obj1 = 300;
+        Integer obj2 = 300;
+
+        System.out.println("=="+(obj1 == obj2));
+        System.out.println("equals():"+obj1.equals(obj2));
+        System.out.println();
+
+        Integer obj3 = 10;
+        Integer obj4 = 10;
+        System.out.println("==:" +(obj3 == obj4));
+        System.out.println("equals:"+obj3.equals(obj4));
+    }
+    public void MathE(){
+        double v1 = Math.ceil(5.3);
+        double v2 = Math.floor(5.3);
+        System.out.println("v1="+v1);
+        System.out.println("v2="+v2);
+
+        long v3 = Math.max(3,7);
+        long v4 = Math.min(3,7);
+        System.out.println("v3="+v3);
+        System.out.println("v4="+v4);
+
+        double va = 12.3456;
+        double te = va * 100;
+        long te2 = Math.round(te);
+        double v5 = te2 / 100.0;
+        System.out.println("v5="+v5);
+    }
+    public void Date() {
+        Date now = new Date();
+        String st = now.toString();
+        System.out.println(st);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        String str = sdf.format(now);
+        System.out.println(str);
+    }
+    public void Simp(){
+        Date now = new Date();
+
+        SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(s.format(now));
+
+        s = new SimpleDateFormat("yyyy년 MM월 dd일");
+        System.out.println(s.format(now));
+
+        s = new SimpleDateFormat("yyyy.MM.dd a HH:mm:ss");
+        System.out.println(s.format(now));
+
+        s = new SimpleDateFormat("오늘은 E요일");
+        System.out.println(s.format(now));
+
+        s = new SimpleDateFormat("올해의 D번째 날");
+        System.out.println(s.format(now));
+
+        s = new SimpleDateFormat("이달의 d번째 날");
+        System.out.println(s.format(now));
+
+
+    }
+    public void Patten(){
+        String reg = "(02|010)-\\d{3,4}-\\d{4}";
+        String date = "010-123-456";
+        boolean re = Pattern.matches(reg,date);
+        if(re){
+            System.out.println("정규식과 일치합니다");
+        }else {
+            System.out.println("정규삭과 일치하지않습니다");
+        }
+        reg = "\\w+@\\w+\\.\\w+(\\.\\w)?";
+        date = "aojdlkf@kzsglkjmlz";
+        re = Pattern.matches(reg,date);
+        if(re){
+            System.out.println("정규삭과 일치합니다");
+        }else{
+            System.out.println("정규식과 일치하지 않습니다");
+        }
+    }
+    }
+//개인과제1 : p526 ~ p562 까지의 예제를 직접 소스 타이핑하고 디버깅하세요.
+//p563 부터 확인문제 5, 6, 8, 9, 10, 11, 12, 15, 16, 17번 직접 소스 만드세요.
+
+

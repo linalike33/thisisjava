@@ -16,6 +16,11 @@ public class Main {
         Ch12 a = new Ch12();
         //a.Hash();
         a.StuEx();
+        a.BoxingUp();
+        a.ValueCo();
+        a.MathE();
+        a.Date();
+        a.Simp();
 
 
     }
