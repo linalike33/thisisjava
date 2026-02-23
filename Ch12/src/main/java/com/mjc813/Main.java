@@ -15,12 +15,13 @@ public class Main {
 //            System.out.println(u2.hashCode());
         Ch12 a = new Ch12();
         //a.Hash();
-        a.StuEx();
-        a.BoxingUp();
-        a.ValueCo();
-        a.MathE();
-        a.Date();
-        a.Simp();
+//        a.StuEx();
+//        a.BoxingUp();
+//        a.ValueCo();
+//        a.MathE();
+//        a.Date();
+//        a.Simp();
+        a.GenricE();
 
 
     }

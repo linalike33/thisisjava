@@ -218,6 +218,18 @@ public class Ch12 {
             System.out.println("정규식과 일치하지 않습니다");
         }
     }
+    public void GenricE(){
+        Box<String> box1 = new Box<>();
+        box1.content = "안녕하세요";
+        String str = box1.content;
+        System.out.println(str);
+
+        Box<Integer>box2 = new Box<>();
+        box2.content = 100;
+        int value = box2.content;
+        System.out.println(value);
+    }
+
     }
 //개인과제1 : p526 ~ p562 까지의 예제를 직접 소스 타이핑하고 디버깅하세요.
 //p563 부터 확인문제 5, 6, 8, 9, 10, 11, 12, 15, 16, 17번 직접 소스 만드세요.
