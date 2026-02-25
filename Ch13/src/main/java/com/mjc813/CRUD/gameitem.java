@@ -30,7 +30,11 @@ public class gameitem <A> implements CRUD<A> {
 
     @Override
     public A remove(int index) { // index 번째의 item 을 삭제한다. 리턴은 item 값이다.
-        return itemList.remove(index);
+        //return itemList.remove(index);
+        if (index < 0 || index >= itemList.size()) {
+            return null;
+        }
+       return (itemList.remove(index));
     }
 
     @Override
