@@ -1,5 +1,7 @@
 import org.example.*;
 
+import static java.lang.Double.sum;
+
 public class Ch16 {
     //람다식
     public void Lambda(){
@@ -71,6 +73,39 @@ public class Ch16 {
             double re = x + y;
             return re;
         });
+
+        personn.ac((x,y)->(x+y));
+
+        personn.ac((x,y)->sum(x,y));
+
+    }
+    public static double sum(double x , double y){
+        return (x+y);
+    }
+    //메소드 참조
+    public void MethodRefer(){
+        Personnn personnn = new Personnn();
+
+        //정적메소드일경우
+        //람다식
+        //personnn.ac((x,y)-> Computerr.st(x,y);
+        //메소드참조
+        personnn.ac(Computerr::sta);
+
+        Computerr com = new Computerr();
+
+        personnn.ac(com::intt);
+    }
+    //생성자참조
+    public void Cm(){
+        Personnnn personnnn = new Personnnn();
+
+        Member m1 = personnnn.getMem1(Member::new);
+        System.out.println(m1);
+        System.out.println();
+
+        Member m2 = personnnn.getMem2(Member::new);
+        System.out.println();
 
     }
 
