@@ -181,6 +181,97 @@ public class Ch17 {
     //요소를 하나씩 처리 (루핑)
     public void Loopint(){
         int[]intArr ={1,2,3,4,5};
+        Arrays.stream(intArr)
+                .filter(a->a%2==0)
+                .peek(n->System.out.println(n)); //중간처리 최종처리가 없음으로 동작 하지않음
+
+        int total = Arrays.stream(intArr)
+                .filter(a->a%2==0)
+                .peek(n->System.out.println(n))
+                .sum();
+        System.out.println("총힙: " +total+"\n");
+
+        Arrays.stream(intArr)
+                .filter(a-> a%2==0)
+                .forEach(n->System.out.println(n));
+    }
+    //요소 조건만족 여부(매칭)
+    public void Matching(){
+        int[] intArr = {2,4,6};
+
+        boolean re = Arrays.stream(intArr)
+                .allMatch(a->a%2==0);
+        System.out.println("모두 2의 배수인가"+re);
+
+        re = Arrays.stream(intArr)
+                .anyMatch(a-> a%3==0);
+        System.out.println("하나라도 3의 배수가 있는가?"+re);
+
+        re = Arrays.stream(intArr)
+                .noneMatch(a-> a%3==0);
+        System.out.println("3의 배수가 없는가?"+re);
+    }
+    //요소 기본 집계
+    public void Aggre(){
+        int[] arr ={1,2,3,4,5};
+
+        long count = Arrays.stream(arr)
+                .filter(n-> n%2==0)
+                .count();
+        System.out.println("2의 배수 개수:"+count);
+
+        long sum = Arrays.stream(arr)
+                .filter(n->n%2==0)
+                .sum();
+        System.out.println("2의 배수의 합");
+
+        double avg = Arrays.stream(arr)
+                .filter(n->n%2==0)
+                .average()
+                .getAsDouble();
+        System.out.println("2의 배수의 평균:"+avg);
+
+        int max = Arrays.stream(arr)
+                .filter(n-> n%2==0)
+                .max()
+                .getAsInt();
+        System.out.println("최대값:"+max);
+
+        int min = Arrays.stream(arr)
+                .filter(n-> n%2==0)
+                .min()
+                .getAsInt();
+        System.out.println("최소값:"+min);
+
+        int first = Arrays.stream(arr)
+                .filter(n-> n%3==0)
+                .findFirst()
+                .getAsInt();
+        System.out.println("첫 번째 3의 배수:"+first);
+    }
+    //Optional클래스
+    public void Optional(){
+        List<Integer>list = new ArrayList<>();
+
+        OptionalDouble optionalDouble = list.stream()
+                .mapToInt(Integer::intValue)
+                .average();
+        if(optionalDouble.isPresent()){
+            System.out.println("방법1_평균: "+optionalDouble.getAsDouble());
+        }else {
+            System.out.println("방법1_평균: 0.0");
+        }
+
+        double avg = list.stream()
+                .mapToInt(Integer::intValue)
+                .average()
+                .orElse(0.0);
+        System.out.println("방법2_평균: "+avg);
+
+        list.stream()
+                .mapToInt(Integer::intValue)
+                .average()
+                .
     }
 
 }
