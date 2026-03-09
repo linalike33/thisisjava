@@ -106,5 +106,56 @@ public class ch18 {
             e.printStackTrace();
         }
     }
+    //문자 입출력 스트림 (문자 출력)
+    public void WriteE(){
+        try{
+            Writer writer = new FileWriter("C:/Temp/test.txt");
+
+            char a = 'A';
+            writer.write(a);
+            char b = 'B';
+            writer.write(b);
+
+            char[] arr ={'C','D','E'};
+            writer.write(arr);
+
+            writer.write("FGH");
+
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //문자일기
+    public void Readexamp(){
+        try {
+            Reader reader = null;
+
+            reader = new FileReader("C:/Temp/test.txt");
+            while (true){
+                int data = reader.read();
+                if(data == -1)break;
+                System.out.println((char) data);
+            }
+            reader.close();
+            System.out.println();
+
+            reader = new FileReader("C:/Temp/test.txt");
+            char[]data = new char[100];
+            while (true){
+                int num = reader.read(data);
+                if(num == -1)break;
+                for(int i =0;i<num; i++){
+                    System.out.println(data[i]);
+                }
+            }
+            reader.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }
 
