@@ -38,7 +38,7 @@ public class ServerApp3 {
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             String mgs = dis.readUTF();
             System.out.println("[상대방]"+mgs);
-            
+
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
            }
