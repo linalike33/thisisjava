@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Outmain {
     public static void main(String[] args) {
         In in = new In();
+        in.setDaemon(true); //데몬스레드 주스레드(메인스레드) 가 종료되면 따라서 종료된다
         in.start();
 
         Scanner scanner = new Scanner(System.in);

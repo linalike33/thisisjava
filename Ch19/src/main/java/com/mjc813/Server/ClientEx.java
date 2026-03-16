@@ -1,4 +1,4 @@
-package com.mjc813;
+package com.mjc813.Server;
 
 import java.io.IOException;
 import java.net.Socket;

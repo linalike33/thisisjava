@@ -1,10 +1,9 @@
-    package com.mjc813;
+    package com.mjc813.Server;
 
 
     import java.io.BufferedReader;
     import java.io.IOException;
     import java.io.InputStreamReader;
-    import java.io.Reader;
     import java.net.InetSocketAddress;
     import java.net.ServerSocket;
     import java.net.Socket;
