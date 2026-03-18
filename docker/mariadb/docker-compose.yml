@@ -1,0 +1,15 @@
+services:
+  mariadb:
+    container_name: "mariadb_test"
+    image: "mariadb:latest"
+    restart: "always"
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306" 
+    environment:
+      MARIADB_ROOT_PASSWORD: "root1234@"
+      TZ: Asia/Seoul
+    volumes:
+      - ./mariadb-data:/var/lib/mysql

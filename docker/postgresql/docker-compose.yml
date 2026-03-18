@@ -1,0 +1,14 @@
+services:
+  postgres:
+    container_name: "postgres"
+    image: "postgres:latest"
+    restart: "always"
+    ports:
+      - "3306:3306"
+    environment:
+      POSTGES_USER: $userId
+      POSTGRES_PASSWORD: "root1234@"
+      TZ: Asia/Seoul
+      POSTGRES_DB: "my_postgres_db"
+    volumes:
+      - ./postgresql-data:/var/lib/postgresql/data
