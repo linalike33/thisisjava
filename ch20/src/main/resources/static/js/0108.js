@@ -143,9 +143,9 @@ printList() {
       // 5. mybatis insert 메소드는 SQL INSERT query 를 데이터베이스연결한 컨넥션풀에서 실행해야 한다.
       // 6. 실행할 결과를 역순으로 화면까지 리턴해야 한다
       $.ajax({
-      	    url: "/api/insert-data" // 요청 URL
+      	    url: "/api/insert-data" // 서버에 요청하는 주소 / 요청 URL
       	    , type: "POST"          // 전송 방식 (GET, POST 등)
-      	    , dataType: "json"      // 응답 데이터 타입
+      	    , dataType: "json"      // 응답 데이터 타입 / 서버에 요청할때 보내는 데이터
       	    , data: JSON.stringify(insertData)
       	    , contentType: "application/json"
       	})

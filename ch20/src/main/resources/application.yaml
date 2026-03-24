@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ch20
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/beginner?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: beginner_user
+    password: beginer1234@
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.mjc813.ch20
+  configuration:
+    map-underscore-to-camel-case: true
