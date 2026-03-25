@@ -151,13 +151,13 @@ printList() {
       	})
       	.done(function(data, textStatus, jqXHR) {
       	    // 요청 성공 시 실행
-      	    console.log("성공:", data);
+      	    alert("성공:", data);
       //	    $("#result").text(data.message);
-              this.clearInputBox();
+               clearInputBox();
       	})
       	.fail(function(jqXHR, textStatus, errorThrown) {
       	    // 요청 실패 시 실행
-      	    console.error("실패:", textStatus);
+      	    alert("실패:", textStatus);
       	})
       	.always(function() {
       	    // 성공/실패 관계없이 항상 실행
@@ -169,33 +169,57 @@ printList() {
   updateGame() {
   if ( !this.checkInputData("update") ) return;
 
-  // 현재 입력창에 표시된 ID를 가져옵니다.
-  let currentId = $("#id").val() * 1;
+//  // 현재 입력창에 표시된 ID를 가져옵니다.
+//  let currentId = $("#id").val() * 1;
 
-  let tmp = {
-    id: currentId,
+  let gameData = {
+     id: $("#id").val(),
     name: $("#name").val(),
     genre: $("#genre").val(),
     grade: $("#grade").val(),
     price: $("#price").val() * 1,
     imgUrl: $("#imgUrl").val(),
   };
+ this.updateData(gameData);
+ }
+//  let findIndex = this.#gameList.findIndex((game) => game.id === currentId);
 
-  let findIndex = this.#gameList.findIndex((game) => game.id === currentId);
-
-  if (findIndex >= 0) {
-    this.#gameList[findIndex] = tmp;
-    this.printList();
-    this.clearInputBox(); // 수정 후 입력창 비우기
-    alert("수정되었습니다.");
-  }
-}
+//  if (findIndex >= 0) {
+//    this.#gameList[findIndex] = tmp;
+//    this.printList();
+//    this.clearInputBox(); // 수정 후 입력창 비우기
+//    alert("수정되었습니다.");
+//  }
+//}
 
     // 입력데이터는 JS 객체로 만든다. let JS객체 = {id:고유번호, name:$("#name").val(), genre:"S", grade:"ALL", price:금액, imgUrl:"http://..."};
     // gameList 배열에서 JS객체.id 번호랑 같은 원소를 찾는다. let 찾는객체 = this.#gameList.find(() => {});
     // JS객체를 찾는객체로 바꿔치기 한다.
     // gameList 배열정보를 게임목록 화면에 출력한다. this.printList();
+updateData(gameData){
+$.ajax({
+  	    url: "/api/update-data" // 요청 URL
+  	    , type: "PATCH"          // 전송 방식 (GET, POST 등)
+  	    , dataType: "json"      // 응답 데이터 타입
+  	    , data: JSON.stringify(gameData)
+  	    , contentType: "application/json"
+  	})
+  	.done(function(data, textStatus, jqXHR) {
+  	    // 요청 성공 시 실행
+  	     alert("성공:", data);
+  //	    $("#result").text(data.message);
+          clearInputBox();
+  	})
+  	.fail(function(jqXHR, textStatus, errorThrown) {
+  	    // 요청 실패 시 실행
+  	    alert("실패:", textStatus);
+  	})
+  	.always(function() {
+  	    // 성공/실패 관계없이 항상 실행
+  //	    console.log("요청 완료");
+  	});
 
+}
 
   deleteGame() {
   if (!this.checkInputData("delete")) {
