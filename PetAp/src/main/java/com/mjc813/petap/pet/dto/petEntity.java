@@ -25,7 +25,7 @@ public class petEntity { //데이터 베이스 테이블과 똑같이 생긴 실
     private String species;
 
     @Column(length = 100, nullable = false)
-    private String breedy;
+    private String breed;
 
     @Column(length = 1, nullable = false)
     private String gender;
@@ -33,7 +33,7 @@ public class petEntity { //데이터 베이스 테이블과 똑같이 생긴 실
     @Column
     private LocalDate birth;
 
-    @Column(length = 500, nullable = true)
+    @Column(name="img_file", length = 500, nullable = true)
     private String imgFile;
 
 
