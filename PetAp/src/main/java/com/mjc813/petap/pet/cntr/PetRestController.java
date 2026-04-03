@@ -1,10 +1,16 @@
 package com.mjc813.petap.pet.cntr;
 
+import com.mjc813.petap.PetRequestDto;
 import com.mjc813.petap.PetResponseDto;
 import com.mjc813.petap.pet.dto.petDto;
+import com.mjc813.petap.pet.dto.petEntity;
 import com.mjc813.petap.pet.svc.petService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -64,4 +70,24 @@ public class PetRestController { //화면없이 json 같은 데이터만 주고 
 			return ResponseEntity.status(500).body(new PetResponseDto(-999, "ERROR", null));
 		}
 	}
+	@GetMapping("/search")//이름으로 검색하기
+	public ResponseEntity<PetResponseDto> findByNameContains(
+			@RequestParam (name="searchName", defaultValue = "")  String searchName //(name="searchName", defaultValue = "")   이걸 추가 하지 않았을때는 검색창에 아무것도 쓰지 않고 검색 버튼을 누리면 에러가 발생하는데 저 코드를 추가하면 아무것도 안쓴걸로 생각하고 빈 칸으로 처리해주며 전체 목록을 보여주게된다
+			, @PageableDefault(size=5, sort="id", direction = Sort.Direction.DESC) Pageable pageable)
+	// 웹클라이언트에서 GET주소 요청시에 Pageable 정보를 이런식으로 전달할 수 있다. &sort=id,desc&size=4&page=0
+			//몇 페이지 보여줘라고 하지 않아도 기본으로 5개씩 iD 큰 순서대로 잘라서 보여준다
+	{
+		try {
+			PetRequestDto prd = new PetRequestDto(); //검색어가 담길 PetRequestDto 생성
+			prd.setSearchName(searchName);
+			//petService 서버를 호출 이름 이 포함된 페이지 규격에 맞게 가져오는것
+			//Slice 전체 개수를 세는게 아니고 다음 페이지가 잇다 없나 체크하는 목록
+			Slice<petEntity> result = this.petService.findByNameContains(prd, pageable);
+			return ResponseEntity.ok().body(new PetResponseDto(0, "SUCCESS", result));
+		} catch (Exception e) {
+			return ResponseEntity.status(500).body(new PetResponseDto(-999, "ERROR", null));
+		}
+	}
 }
+
+

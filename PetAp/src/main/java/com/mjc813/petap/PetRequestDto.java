@@ -9,5 +9,5 @@ import lombok.*;
 @ToString
 public class PetRequestDto {
 	private Integer rowCount;
-//	private
+	private String searchName;
 }

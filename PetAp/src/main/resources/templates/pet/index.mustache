@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>PET SHOP</title>
+</head>
+<body>
+<h1> A 팀의 펫 관리 입니다. </h1>
+<section>
+    <fieldset>
+        <label for="id">ID</label><input type="text" id="id" readonly>
+        <label for="name">펫이름</label><input type="text" id="name">
+        <label for="species">펫종류</label><input type="text" id="species">
+        <label for="breed">펫종</label><input type="text" id="breed">
+        <label for="gender">성별</label><input type="text" id="gender">
+        <label for="birth">생일</label><input type="text" id="birth">
+        <label for="imgFile">사진</label><input type="text" id="imgFile">
+    </fieldset>
+    <div>
+        <button onclick="$.addPet()">추가</button>
+        <button onclick="$.updatePet()">수정</button>
+        <button onclick="$.deletePet()">삭제</button>
+    </div>
+</section>
+<section>
+    <div>
+        <fieldset>
+            <label for="searchName">검색이름</label><input type="text" id="searchName">
+            <button onclick="$.searchListFirst()">검색</button>
+        </fieldset>
+    </div>
+</section>
+<section id="list">
+</section>
+<div style="align: center">
+    <button onclick="$.searchList()">더보기</button>
+</div>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script>
+    let curPage = -1;  //현재보고있는 페이지 번호 (첨엔 아무것도 안봣으니 -1)
+
+    $(() => {
+        $.searchListFirst = function() {
+            // 검색버튼은 기존 목록을 지우고 첫페이지부터 보여줘야 한다.(새로 검색한다는 뜻)
+            $("#list").empty(); //페이지 번호도 다시 처음(-1)로 리셋한다
+            curPage = -1;
+            $.searchList();
+        };
+
+      $.searchList = () => { //진짜로 서버에 데이터를 요청하는 함수
+        curPage++;  // 더보기로 검색한 결과 이후 페이지 데이터를 가져와서 보여준다.
+        // curPage 가 -1 이면 0이 되면서 첫페이지부터 시작
+        let searchName = $("#searchName").val(); //검색창에 쓴 글자를 변수 담는다
+
+        $.ajax({
+            url: `/api/pet/search?searchName=${searchName}&sort=id,desc&size=5&page=${curPage}` // 요청 URL
+            , type: "GET"          // 전송 방식 (GET, POST 등) 데이터를 가져오는 거니 Get
+        })
+        .done(function(data, textStatus, jqXHR) {
+    //	    alert("성공:", data);
+            $.printList(data.data.content);
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            alert("실패:", textStatus);
+        })
+        .always(function() {
+            // 성공/실패 관계없이 항상 실행
+        });
+      }
+
+      $.printList = (list) => {
+        list.forEach((item) => {
+            $("#list").append( $.makeHtmlOne(item) );
+        });
+      }
+
+      $.makeHtmlOne = (one) => {
+        return `<div onclick="$.showPet(${one.id})">
+    <span>${one.name}</span>
+    <span>${one.species}</span>
+    <span>${one.breed}</span>
+    <span>${one.gender}</span>
+    <span>${one.birth}</span>
+    <span>${one.imgFile}</span>
+    </div>`
+      }
+
+      $.showPet = (id) => { //리스트 클릭식 리스트의 강아지를 클릭하면 실행되는 함수
+          $.ajax({
+              url: "/api/pet/" + id // 요청 URL
+              , type: "GET"          // 전송 방식 (GET, POST 등)
+          })
+          .done(function(data, textStatus, jqXHR) { //가져온 한 마리의 정보를 위 쪽 입력창들에 채워준다
+              $.printItem(data.data);
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+              alert("실패:", textStatus);
+          })
+          .always(function() {
+          });
+      }
+
+      $.printItem = (item) => { //[보조함수] 서버에서 받은 데이터를 입력창에 뿌려주는 역할
+        $("#id").val(item.id);
+        $("#name").val(item.name);
+        $("#breed").val(item.breed);
+        $("#gender").val(item.gender);
+        $("#species").val(item.species);
+        $("#birth").val(item.birth);
+        $("#imgFile").val(item.imgFile);
+      }
+
+      $.getItem = () => { //입력창에 써진 내용들을 모아서 JSon 만드는 역할
+        let item = {
+            "id" : $("#id").val()
+            , "name" : $("#name").val()
+            , "breed" : $("#breed").val() //결과의 모든값을 하나의 덩어리로 묶음
+            , "gender" : $("#gender").val()
+            , "species" : $("#species").val()
+            , "birth" : $("#birth").val()
+            , "imgFile" : $("#imgFile").val()
+        }
+        return item;
+      }
+
+      $.addPet = () => { //추가하기(POST)
+        let newPet = $.getItem(); //입력한 내용을 챙긴다
+        newPet.id = null; //새 등록이니 id를 비워둔다
+          $.ajax({
+              url: "/api/pet"
+              , type: "POST" //새로저장
+            , dataType: "json"
+            , data: JSON.stringify(newPet) //자바 객체를 json으로 텍스트를 보관하고
+            , contentType: "application/json" //이 안에 json이 들어있다는 것을 알려줌
+          })
+          .done(function(data, textStatus, jqXHR) {
+              $.printItem({"id":"", "name":"", "breed":"", "gender":"", "birth":"", "species":"", "imgUrl":""});
+              $.searchListFirst(); //저장이 끝나면 목록을 다시 처음부터 그린다
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+              alert("실패:", textStatus);
+          })
+          .always(function() {
+          });
+      }
+
+      $.updatePet = () => { //수정하기
+        let updatePet = $.getItem(); //고친내용들
+          $.ajax({
+              url: "/api/pet"
+              , type: "PATCH" //일부만 고쳐달라고
+            , dataType: "json"
+            , data: JSON.stringify(updatePet)
+            , contentType: "application/json"
+          })
+          .done(function(data, textStatus, jqXHR) {
+              $.printItem({"id":"", "name":"", "breed":"", "gender":"", "birth":"", "species":"", "imgUrl":""});
+              $.searchListFirst(); //수정하고
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+              alert("실패:", textStatus);
+          })
+          .always(function() {
+          });
+      }
+
+      $.deletePet = () => { //삭제하기
+        let id = $("#id").val(); /삭제하고싶은 것에 번호를 id를 가져온다
+          $.ajax({
+              url: "/api/pet?id=" + id //주소창 뒤에 물음표를 달고 감(?id=번호)
+              , type: "DELETE" //지우고
+          })
+          .done(function(data, textStatus, jqXHR) {
+              $.printItem({"id":"", "name":"", "breed":"", "gender":"", "birth":"", "species":"", "imgUrl":""});
+              $.searchListFirst(); //삭제 후목록을 세로고침
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+              alert("실패:", textStatus);
+          })
+          .always(function() {
+          });
+      }
+    });
+</script>
+</html>
