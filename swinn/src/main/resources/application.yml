@@ -10,3 +10,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+server:
+  port: 8092
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
